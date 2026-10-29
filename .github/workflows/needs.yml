@@ -23,6 +23,7 @@ jobs:
               run: echo "Analyse statique du code..."
 
     test:
+        needs: [code-quality, static-analysis]
         runs-on: ubuntu-latest
         steps:
             - name: Récupérer le dépôt
@@ -31,6 +32,7 @@ jobs:
               run: echo "Exécution des tests..."
 
     build:
+        needs: [test]
         runs-on: ubuntu-latest
         steps:
             - name: Récupérer le dépôt
