@@ -12,7 +12,7 @@ jobs:
     variable-et-contexte:
         env:
             JOB_VARIABLE: une valeur spécifique au job
-        runs-on: ubuntu-latest
+        runs-on: windows-latest
         steps:
             - name: Récupérer le dépôt
               uses: actions/checkout@v7
