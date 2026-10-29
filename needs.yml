@@ -3,6 +3,11 @@ on:
     push:
         branches:
             - main
+            - develop
+            - feature/*
+    pull_request:
+        branches:
+            - main
 jobs:
     code-quality:
         runs-on: ubuntu-latest
