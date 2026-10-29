@@ -1,0 +1,41 @@
+name: Needs et Outputs
+on:
+    push:
+        branches:
+            - main
+jobs:
+    code-quality:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Récupérer le dépôt
+              uses: actions/checkout@v7
+            - name: Vérifier la qualité du code
+              run: echo "Vérification de la qualité du code..."
+            - name: Linting du code
+              run: echo "Linting du code..."
+
+    static-analysis:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Récupérer le dépôt
+              uses: actions/checkout@v7
+            - name: Analyse statique du code
+              run: echo "Analyse statique du code..."
+
+    test:
+        runs-on: ubuntu-latest
+        needs: [code-quality, static-analysis]
+        steps:
+            - name: Récupérer le dépôt
+              uses: actions/checkout@v7
+            - name: Exécuter les tests
+              run: echo "Exécution des tests..."
+
+    build:
+        runs-on: ubuntu-latest
+        needs: [test]
+        steps:
+            - name: Récupérer le dépôt
+              uses: actions/checkout@v7
+            - name: Construire le projet
+              run: echo "Construction du projet..."
