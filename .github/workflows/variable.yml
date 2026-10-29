@@ -18,3 +18,18 @@ jobs:
               uses: actions/checkout@v7
             - name: Lister les variables par defaut
               run: env
+            - name: Lister les variables d'environnement du job
+              env:
+                STEP_VARIABLE: une valeur spécifique à l'étape
+              run: |
+                    echo "-----VARIABLES GITHUB-----"
+                    echo $GITHUB_REF
+                    echo $GITHUB_SHA
+                    echo "-----VARIABLES D'ENVIRONNEMENT-----"
+                    echo $MA_VARIABLE
+                    echo $AUTRE_VARIABLE
+                    echo "-----AFFICHAGE DES VARIABLES EN UTILISANT LE CONTEXTE-----"
+                    echo ${{github.ref}}
+                    echo ${{env.MA_VARIABLE}}
+                    echo ${{runner.os}}
+
