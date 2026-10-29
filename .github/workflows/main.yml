@@ -1,0 +1,17 @@
+# Nom du workflow
+name: premier workflow
+
+# Evénement déclencheur
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    premier-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Récupérer le dépôt
+              uses: actions/checkout@v7
+            - name: Lister les fichiers du dépôt
+              run: ls -la
