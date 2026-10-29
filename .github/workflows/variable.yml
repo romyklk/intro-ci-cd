@@ -1,0 +1,20 @@
+name: les variables et contextes
+on:
+    push:
+        branches:
+            - main
+            - develop
+env:
+    MA_VARIABLE: variable dans le workflow
+    AUTRE_VARIABLE: une autre valeur globale
+
+jobs:
+    variable-et-contexte:
+        env:
+            JOB_VARIABLE: une valeur spécifique au job
+        runs-on: ubuntu-latest
+        steps:
+            - name: Récupérer le dépôt
+              uses: actions/checkout@v7
+            - name: Lister les variables par defaut
+              run: env
