@@ -12,7 +12,7 @@ jobs:
     variable-et-contexte:
         env:
             JOB_VARIABLE: une valeur spécifique au job
-        runs-on: windows-latest
+        runs-on: ubuntu-latest
         steps:
             - name: Récupérer le dépôt
               uses: actions/checkout@v7
@@ -32,4 +32,5 @@ jobs:
                     echo ${{github.ref}}
                     echo ${{env.MA_VARIABLE}}
                     echo ${{runner.os}}
+                    echo ${{secrets.API_KEY}}
 
