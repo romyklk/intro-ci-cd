@@ -11,8 +11,13 @@ jobs:
               uses: actions/checkout@v7
             - name: Vérifier la qualité du code
               run: echo "Vérification de la qualité du code..."
+            - name: Quality code version
+              id: quality-code-version
+              run: echo "quality-code-version=1.0" >> $GITHUB_OUTPUT
             - name: Linting du code
               run: echo "Linting du code..."
+            - name: Afficher la version de la qualité du code
+              run: echo La version de la qualité du code ${{ steps.quality-code-version.outputs.quality-code-version }}
 
     static-analysis:
         runs-on: ubuntu-latest
